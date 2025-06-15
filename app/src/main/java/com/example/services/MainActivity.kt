@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        //accessing permission for request 
         ActivityCompat.requestPermissions(
             this,
             arrayOf(android.Manifest.permission.POST_NOTIFICATIONS),
