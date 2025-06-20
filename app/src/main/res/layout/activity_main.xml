@@ -11,18 +11,28 @@
         android:id="@+id/startService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="StartService"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="StartService"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/ShowOfferButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Show offer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startService" />
+
+    <Button
         android:id="@+id/stopService"
         android:layout_width="wrap_content"
-        android:text="StopService"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:text="StopService"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/startService" />
