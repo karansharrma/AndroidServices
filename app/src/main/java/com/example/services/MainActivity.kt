@@ -34,5 +34,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.stopService).setOnClickListener {
             stopService(Intent(this, AndroidServices::class.java))
         }
+
+
+        findViewById<Button>(R.id.ShowOfferButton).setOnClickListener {
+            startForegroundService(Intent(this, OfferService::class.java))
+        }
     }
 }
