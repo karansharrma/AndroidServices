@@ -39,5 +39,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.ShowOfferButton).setOnClickListener {
             startForegroundService(Intent(this, OfferService::class.java))
         }
+        findViewById<Button>(R.id.IntentToWebView).setOnClickListener{
+            startActivity(Intent(this,WebViewActivity::class.java))
+        }
     }
 }
