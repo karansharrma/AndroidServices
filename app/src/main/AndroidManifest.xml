@@ -5,7 +5,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Services"
         tools:targetApi="31">
+        <activity
+            android:name=".ImageEncodeActivity"
+            android:exported="false" />
         <activity
             android:name=".WebViewActivity"
             android:exported="false" />
