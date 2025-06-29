@@ -45,12 +45,25 @@ class ImageEncodeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        // Initialize views
         btnEncode = findViewById(R.id.btn_encode)
         btnDecode = findViewById(R.id.btn_decode)
         textView = findViewById(R.id.textView)
         imageView = findViewById(R.id.imageView)
+
+        val permission = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            Manifest.permission.READ_MEDIA_IMAGES
+        } else {
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        }
+
+        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(permission), 100)
+        } else {
+            selectImage()
+        }
+
+        // Initialize views
+
 
         btnEncode.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -82,14 +95,20 @@ class ImageEncodeActivity : AppCompatActivity() {
         pickImageLauncher.launch(Intent.createChooser(intent, "Select Image"))
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
         if (requestCode == 100 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             selectImage()
         } else {
             Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     // Register the ActivityResultLauncher for image picking
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->

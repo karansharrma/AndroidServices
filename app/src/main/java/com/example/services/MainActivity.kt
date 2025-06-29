@@ -42,5 +42,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.IntentToWebView).setOnClickListener{
             startActivity(Intent(this,WebViewActivity::class.java))
         }
+
+        findViewById<Button>(R.id.ImageEncoder).setOnClickListener{
+            startActivity(Intent(this,ImageEncodeActivity::class.java))
+        }
     }
 }

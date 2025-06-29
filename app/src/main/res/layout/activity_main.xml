@@ -38,6 +38,16 @@
         app:layout_constraintTop_toBottomOf="@id/startService" />
 
     <Button
+        android:id="@+id/ImageEncoder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ImageEncoder"
+        app:layout_constraintBottom_toTopOf="@id/IntentToWebView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ShowOfferButton" />
+
+    <Button
         android:id="@+id/IntentToWebView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
